@@ -7,7 +7,7 @@
 </head>
 <body>
 <table border="1">
-    <caption>List Member</caption>
+    <caption>List Member  <a href="member_form_add.php">เพิ่มข้อมูล</a></caption>
     <thead>
         <tr>
         <th>ID</th>
@@ -16,6 +16,7 @@
         <th>NAME</th>
         <th>PHONE</th>
         <th>EMAIL</th>
+        <th>EDIT</th>
         </tr>
     </thead>
     <tbody>
@@ -35,6 +36,8 @@
         <td><?php echo $row['name'];?></td>
         <td><?php echo $row['phone'];?></td>
         <td><?php echo $row['email'];?></td>
+        <!-- ส่งค่า id เพื่อแก้ไข -->
+        <td><a href="member_form_edit.php?id=<?php echo $row['id'];?>">Edit</a></td>
         </tr>
     <?php } ?>
     </tbody>

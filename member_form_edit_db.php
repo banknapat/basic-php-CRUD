@@ -3,19 +3,19 @@ include'condb.php';
 echo '<pre>';
 print_r($_POST);
 echo '</pre>';
-
+//exit;
 // ประกาศตัวแปรรับค่าจาก form
     $username = $_POST['username'];
     $password = $_POST['password'];
     $name = $_POST['name'];
     $phone = $_POST['phone'];
     $email = $_POST['email'];
-
-// insert into table
-    $sql = "INSERT INTO tbl_member
-    (username, password, name, phone, email)
-    VALUES
-    ('$username', '$password', '$name', '$phone', '$email')
+    $id = $_POST['id'];
+// อัพเดทข้อมูลลง database
+// UPDATE table_name
+// SET column1=value, column2=value2,...
+// WHERE some_column=some_value
+    $sql = "UPDATE tbl_member SET username='$username',password='$password', name='$name', phone='$phone', email='$email' WHERE id = $id
     ";
 
     $result = mysqli_query($condb, $sql) or die("Error in sql : $sql". mysqli_error($sql));
@@ -25,13 +25,10 @@ echo '</pre>';
 
     if($result){
         echo "<script type='text/javascript'>";
-            echo "alert('Insert Successfully');";
+            echo "alert('Update Successfully');";
             echo "window.location='member_list.php';";
         echo "</script>";
-    }else{
-        echo "<script type='text/javascript'>";
-            echo "alert('Error !!!');";
-            echo "window.location='member_list.php';";
-        echo "</script>";
+    }else {
+        echo 'Error !!!';
     }
 ?>
