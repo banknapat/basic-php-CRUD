@@ -6,8 +6,8 @@
     <title>Member List</title>
 </head>
 <body>
+<h3>List Member  <a href="member_form_add.php">เพิ่มข้อมูล</a></h3>
 <table border="1">
-    <caption>List Member  <a href="member_form_add.php">เพิ่มข้อมูล</a></caption>
     <thead>
         <tr>
         <th>ID</th>
@@ -22,12 +22,13 @@
     </thead>
     <tbody>
     <?php
-    // นำเข้าไฟล์เชื่อมต่อ database
-    include 'condb.php';
-    // สร้าง query จาก database
-    $query = "SELECT * FROM tbl_member";
-    // ตรวจสอบการทำงานของ query  และ connect database และเอาข้อมูลเก็บไว้ในตัวแปล
-    $result = mysqli_query($condb, $query) or die("Error in sql : $query". mysqli_error($query));
+        // นำเข้าไฟล์เชื่อมต่อ database
+        include 'condb.php';
+        // สร้าง query จาก database
+        $query = "SELECT * FROM tbl_member";
+        // ตรวจสอบการทำงานของ query  และ connect database และเอาข้อมูลเก็บไว้ในตัวแปล
+        $result = mysqli_query($condb, $query) or die("Error in sql : $query". mysqli_error($query));
+        echo 'จำนวนข้อมูล ' .mysqli_num_rows($result);
     // เรียกข้อมูลมาแสดง
     foreach ($result as $row){ ?>
         <tr>
