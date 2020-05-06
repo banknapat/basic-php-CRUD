@@ -1,8 +1,8 @@
 <?php
 include'condb.php';
-echo '<pre>';
-print_r($_POST);
-echo '</pre>';
+// echo '<pre>';
+// print_r($_POST);
+// echo '</pre>';
 //exit;
 // ประกาศตัวแปรรับค่าจาก form
     $username = $_POST['username'];

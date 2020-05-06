@@ -17,6 +17,7 @@
         <th>PHONE</th>
         <th>EMAIL</th>
         <th>EDIT</th>
+        <th>DELETE</th>
         </tr>
     </thead>
     <tbody>
@@ -38,6 +39,7 @@
         <td><?php echo $row['email'];?></td>
         <!-- ส่งค่า id เพื่อแก้ไข -->
         <td><a href="member_form_edit.php?id=<?php echo $row['id'];?>">Edit</a></td>
+        <td><a href="member_delete.php?id=<?php echo $row['id'];?>" onclick="return confirm('confirm DELETE data');">Delete</a></td>
         </tr>
     <?php } ?>
     </tbody>
